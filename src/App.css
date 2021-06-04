@@ -1,0 +1,18 @@
+.App {
+  padding: 20px;
+  display: flex;
+}
+
+.App > div {
+  margin-right: 50px;
+}
+
+.is-done{
+  opacity: 0.5;
+}
+.active-filter{
+  background-color: bisque;
+}
+.error{
+  border: 2px solid red;
+}
