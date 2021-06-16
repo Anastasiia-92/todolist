@@ -7,7 +7,7 @@ import Checkbox from "@material-ui/core/Checkbox";
 import {TaskType} from "./ToDoList";
 
 
-type PropsTasksType = {
+export type PropsTasksType = {
     task: TaskType
     changeTaskTitle: (taskID: string, title: string, todoListID: string) => void
     filter: FilterValuesType

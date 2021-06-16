@@ -26,7 +26,7 @@ export type TaskStateType = {
     [key: string]: Array<TaskType>
 }
 
-function AppWithRedux() {
+export const AppWithRedux = () => {
 //BLL:
 
     const todoLists = useSelector<AppRootStateType, TodoListType[]>(state => state.todolists)
