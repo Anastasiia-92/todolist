@@ -7,7 +7,7 @@ type AddItemFormPropsType = {
     disabled?: boolean
 }
 
-export const AddItemForm = React.memo(function ({addItem, disabled = false}: AddItemFormPropsType) {
+export const AddItemForm = React.memo(function({addItem, disabled = false}: AddItemFormPropsType) {
     console.log("AddItemForm called")
 
     let [title, setTitle] = useState("")
@@ -36,18 +36,17 @@ export const AddItemForm = React.memo(function ({addItem, disabled = false}: Add
     }
 
     return <div>
-        <TextField
-            disabled={disabled}
-            variant="outlined"
-            error={!!error}
-            value={title}
-            onChange={onChangeHandler}
-            onKeyPress={onKeyPressHandler}
-            label="Title"
-            helperText={error}
+        <TextField variant="outlined"
+                   disabled={disabled}
+                   error={!!error}
+                   value={title}
+                   onChange={onChangeHandler}
+                   onKeyPress={onKeyPressHandler}
+                   label="Title"
+                   helperText={error}
         />
         <IconButton color="primary" onClick={addItemHandler} disabled={disabled}>
-            <AddBox/>
+            <AddBox />
         </IconButton>
     </div>
 })
