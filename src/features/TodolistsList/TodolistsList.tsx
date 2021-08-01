@@ -15,7 +15,7 @@ import {TaskStatuses} from '../../api/todolists-api'
 import {Grid, Paper} from '@material-ui/core'
 import {AddItemForm} from '../../components/AddItemForm/AddItemForm'
 import {Todolist} from './Todolist/Todolist'
-import {Redirect} from "react-router-dom";
+import { Redirect } from 'react-router-dom'
 
 type PropsType = {
     demo?: boolean
@@ -24,12 +24,9 @@ type PropsType = {
 export const TodolistsList: React.FC<PropsType> = ({demo = false}) => {
     const todolists = useSelector<AppRootStateType, Array<TodolistDomainType>>(state => state.todolists)
     const tasks = useSelector<AppRootStateType, TasksStateType>(state => state.tasks)
-    let isLoggedIn = useSelector<AppRootStateType, boolean>(state => state.auth.isLoggedIn)
+    const isLoggedIn = useSelector<AppRootStateType, boolean>(state => state.auth.isLoggedIn)
+
     const dispatch = useDispatch()
-
-
-
-
 
     useEffect(() => {
         if (demo || !isLoggedIn) {
@@ -60,7 +57,7 @@ export const TodolistsList: React.FC<PropsType> = ({demo = false}) => {
     }, [])
 
     const changeFilter = useCallback(function (value: FilterValuesType, todolistId: string) {
-        const action = changeTodolistFilterAC(todolistId, value)
+        const action = changeTodolistFilterAC({ id: todolistId, filter: value})
         dispatch(action)
     }, [])
 
@@ -79,8 +76,8 @@ export const TodolistsList: React.FC<PropsType> = ({demo = false}) => {
         dispatch(thunk)
     }, [dispatch])
 
-    if(!isLoggedIn){
-        return <Redirect to={'/login'} />
+    if (!isLoggedIn) {
+        return <Redirect to={"/login"} />
     }
 
     return <>
